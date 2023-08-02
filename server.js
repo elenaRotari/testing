@@ -4,7 +4,7 @@ import express from "express";
 import mongoose from "mongoose";
 import morgan from "morgan";
 import cors from "cors";
-import userRouter from "./routes/userRoute.js";
+import taskRouter from "./routes/taskRouter.js";
 
 const PORT = process.env.PORT || 4000;
 const URI = process.env.URI || "mongodb://localhost:27017/test";
@@ -17,7 +17,8 @@ app.use(cors());
 app.use(express.json());
 
 // set routes
-app.use("/users", userRouter);
+app.use("/task", taskRouter);
+
 // set mongoose
 mongoose.connect(URI, () => {
   console.log("DB-Connected");
